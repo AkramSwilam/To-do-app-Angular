@@ -1,0 +1,16 @@
+<div class="container mt-3">
+<h2 class="text-center">Add a New Task</h2>
+<form>
+    <div class="mb-3">
+      <input #title type="text" class="form-control" id="title" placeholder="Task Title">
+    </div>
+    <div class="mb-3">
+      <textarea #desc placeholder="Task Description" class="form-control" ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input #date type="date" class="form-control" id="dueDate">
+    </div>
+    <button type="submit" class="btn btn-primary mx-auto px-5" (click)="addTask(title.value,desc.value,date.value)">Save</button>
+  </form>
+</div>

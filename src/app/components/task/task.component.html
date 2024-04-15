@@ -1,0 +1,8 @@
+
+<div class="container mt-3">
+    <h3 class="text-center">{{task.title}}</h3>
+    <input #title type="text" placeholder="task tile" class="form-control" [(ngModel)]="task.title">
+    <textarea #description class="form-control" [(ngModel)]="task.description" ></textarea>
+    <input #date type="date" class="form-control" [(ngModel)]="task.date" id="dueDate">
+    <button class="btn btn-primary" (click)="updateTask(title.value,description.value,date.value)">Update</button>
+</div>

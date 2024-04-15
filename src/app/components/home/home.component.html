@@ -1,0 +1,42 @@
+<div class="container mt-3">
+    <div class="row mt-3 align-items-center">
+        <div class="col-6">
+            <h2>To Do Tasks</h2>
+        </div>
+        <div class="col-2 offset-4">
+            <button class="btn btn-outline-info">
+                <a [routerLink]="['/add-task']" style="text-decoration: none;" >Add Task</a>
+            </button>
+        </div>
+    </div>
+    <div *ngIf="tasksService.tasks.length==0">
+        <p class="alert alert-danger">
+            No tasks for now.
+        </p>
+    </div>
+
+    <div class="w-100 mx-auto my-4" *ngIf="tasksService.tasks.length>0">
+        <table class="table table-light text-center">
+            <thead>
+                <td>Task Title</td>
+                <td>Task Description</td>
+                <td>Task Date</td>
+                <td>Delete</td>
+                <td>Update</td>
+            </thead>
+            <tbody>
+                <tr class="position-relative" *ngFor="let task of tasksService.tasks; index as i">
+                    <td>{{task.title}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.date}}</td>
+                    <td><Button class="btn btn-danger" (click)="deleteTask(i)">Delete</Button></td>
+                    <td><Button class="btn btn-warning">
+                        <a [routerLink]="['/task',i]">Update</a>
+                    </Button></td>
+                    <input type="checkbox" (click)="toggleDone(i)">
+                    <div *ngIf="task.isDone" class="line-through"></div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
